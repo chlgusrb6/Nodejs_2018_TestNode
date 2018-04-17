@@ -1,3 +1,3 @@
 global.console.log('Hellow, world!');
-
-console.log(module);
+const circle = require('./circle');
+console.log('Area of a circle = '+ circle.area(3));
