@@ -1,6 +1,6 @@
-module.exports = function (width){
+module.exports = function (wid){
     return {
-        width: width,
+        width: wid,
         area: function(){
             return this.width * this.width;
         },
