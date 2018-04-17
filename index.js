@@ -9,3 +9,7 @@ let mySquare = square(5);
 mySquare.width = 10;
 console.log('Area of a square = '+mySquare.area());
 console.log('Circumference of a square = '+mySquare.circum());
+
+const os = require('os');
+console.log(os.type());
+console.log(os.cpus());

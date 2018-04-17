@@ -1,3 +1,3 @@
 git add --all
-git commit -m "Nodejs_2018_TestNode #3 모듈 읽어오기"
+git commit -m "Nodejs_2018_TestNode 컴퓨터 타입과 cpu"
 git push -u origin master
