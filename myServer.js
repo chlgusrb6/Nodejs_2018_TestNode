@@ -1,16 +1,16 @@
 const http = require('http');
-let nPort = 8000;
-let sHost = 'localhost';
+const url = require('url');
 
-function start(){
+function start (port,hostname, route){
     function onRequest(req,res){
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write('Hello world!');
+        let sPathname=url.parse(req.url).pathname;
+        route(sPathname);
+        res.writeHead(200,{'Content-type':'text/html'});
+        res.write('Hello, world!');
         res.end();
     }
-    http.createServer(onRequest).listen(nPort,sHost);
-    console.log('Server is running at' + sHost + ':'+ nPort);
-
+    http.createServer(onRequest).listen(port,hostname);
+    console.log('Server is running at '+ hostname + ':' + port);
 }
 
-exports.start = start;
+exports.start=start;
