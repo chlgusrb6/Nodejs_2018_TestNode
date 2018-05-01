@@ -1,10 +1,10 @@
-module.exports = function (wid){
+module.exports = function (wid) {
     return {
         width: wid,
-        area: function(){
+        area: function () {
             return this.width * this.width;
         },
-        circum: function(){
+        circum: function () {
             return 4 * this.width;
         }
     }; // 객체는 중괄호로 표현
