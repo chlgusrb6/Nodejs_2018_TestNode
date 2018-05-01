@@ -1,5 +1,14 @@
 const queryString = require('querystring');
+const myBrain = require('./myBrain');
+const myData = require('./twitterDonKim');
+let trainedNet = myBrain.train(myData.trainingData);
 
+function execute(input) {
+    let result = myBrain.getResult(trainedNet, input);
+    let output = result.trump > result.kardashian ? 'Trump' : 'Kardashian';
+    console.log('trump = ' + Math.round(result.trump*100) + '%, kardashian = ' + Math.round(result.kardashian*100) + '%');
+    return output;
+}
 function sleep(millisec) {
     let timeStart = new Date().getTime();
     while (new Date().getTime() < timeStart + millisec);
@@ -21,12 +30,17 @@ function start(res) {
 }
 
 function hello(res, postData) {
+    let input = queryString.parse(postData).myName;
+    let result = myBrain.getResult(trainedNet, input);
     let sBody = '<html>' + '<head>' +
         '<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />' +
         '</head>' + '<body>' +
         '안녕하세요, ' + queryString.parse(postData).myName +
-        '(별명: ' + queryString.parse(postData).myNick + ')님!' +
+        '(별명: ' + queryString.parse(postData).myNick + ')님!<br>' +
+        '분석:' + execute(input) +
+        'trump = ' + Math.round(result.trump*100) + '%, kardashian = ' + Math.round(result.kardashian*100) + '%' +
         '</body>' + '</html>';
+        
 
 
     res.writeHead(200, { 'Content-Type': 'text/html' });
