@@ -1,3 +1,5 @@
+const queryString = require('querystring');
+
 function sleep(millisec) {
     let timeStart = new Date().getTime();
     while (new Date().getTime() < timeStart + millisec);
