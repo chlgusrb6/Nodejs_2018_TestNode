@@ -1,3 +1,7 @@
+function sleep(millisec){
+    let timeStart = new Date().getTime();
+}
+
 function start(res) {
     res.writeHead(200,{'Content-type' : 'text/html'});
     res.write('Hello Start!');
