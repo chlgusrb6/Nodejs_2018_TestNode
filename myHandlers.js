@@ -38,7 +38,7 @@ function hello(res, postData) {
         '안녕하세요, ' + queryString.parse(postData).myName +
         '(별명: ' + queryString.parse(postData).myNick + ')님!<br>' +
         '분석:' + execute(input) +
-        'trump = ' + Math.round(result.trump*100) + '%, kardashian = ' + Math.round(result.kardashian*100) + '%' +
+        '<br>trump = ' + Math.round(result.trump*100) + '%, kardashian = ' + Math.round(result.kardashian*100) + '%' +
         '</body>' + '</html>';
         
 
